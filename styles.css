@@ -1,0 +1,124 @@
+body {
+    background-color: #1E201E;
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.title-section {
+    background: linear-gradient(to bottom, #4A1C1B, #000000);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    color: #D4AF37;
+    /* Gold color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.houses-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
+    gap: 20px;
+    padding: 20px;
+}
+
+.house-button {
+    background-size: cover;
+    /* Ensure background image covers the button */
+    background-position: center;
+    /* Center the background image */
+    color: #E2E2E2;
+    /* Light text color */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 300px;
+    /* Adjust based on button height */
+    width: 100%;
+    height: 300px;
+    /* Double the original height */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.house-button:hover {
+    transform: scale(1.05);
+    /* Slightly enlarges the button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Background images for each button */
+#house-stark {
+    background-image: url('images/7narwen-starks.jpg');
+}
+
+#house-lannister {
+    background-image: url('images/7narwen-wallpaper-lannister-1920.jpg');
+}
+
+#house-baratheon {
+    background-image: url('images/7narwen-baratheon-stag-stannis.jpg');
+}
+
+#house-greyjoy {
+    background-image: url('images/7narwen-kracken-7kingdoms.jpg');
+}
+
+#house-tully {
+    background-image: url('images/7narwen-tully-asian-1920.jpg');
+}
+
+#house-tyrell {
+    background-image: url('images/7narwen-wallpaper-tyrelll-1920.jpg');
+}
+
+#house-martell {
+    background-image: url('images/7narwen-wallpaper-martell-1920.jpg');
+}
+
+#house-arryn {
+    background-image: url('images/7narwen-wallpaper-arryn-1920.jpg');
+}
+
+/* #house-targaryen {
+    grid-column: span 2;
+    /* Makes House Targaryen span both columns */
+    background-image: url('images/7narwen-wallpaper-targ-1920.jpg');
+ */
+
+#house-targaryen,
+#house-velaryon {
+    grid-column: span 2;
+    /* Makes House Targaryen and House Velaryon span both columns */
+    background-size: cover;
+    /* Ensure background image covers the button */
+    background-position: center;
+    /* Center the background image */
+}
+
+#house-targaryen {
+    background-image: url('images/7narwen-wallpaper-targ-1920.jpg');
+}
+
+#house-velaryon {
+    background-image: url('images/7narwen-velaryon.jpg');
+}
+
+/* Optional: Additional styling for the map */
+.map-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.map-container img {
+    max-width: 100%;
+    height: auto;
+}
