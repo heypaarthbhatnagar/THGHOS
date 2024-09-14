@@ -13,49 +13,107 @@ body {
 
 .title {
     font-family: 'Cinzel', serif;
-    font-size: 60px;
-    color: #D4AF37;
-    /* Gold color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 80px; /* Larger font size for a grander look */
+    color: #D4AF37; /* Gold color for a majestic feel */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Stronger text shadow for more depth */
     margin: 0;
+    padding: 20px; /* Add padding to increase space around the title */
+    border: 5px solid #D4AF37; /* Gold border for a more refined look */
+    border-radius: 10px; /* Rounded corners for a stylish appearance */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
+    display: inline-block; /* Shrink-wraps the title with its border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Add shadow around the title box */
+    position: relative;
 }
+
+.title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Places the gradient behind the text */
+    border-radius: 50%; /* Makes the gradient circular */
+}
+
 
 .houses-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Two columns */
     gap: 20px;
     padding: 20px;
 }
 
 .house-button {
+    position: relative;
     background-size: cover;
-    /* Ensure background image covers the button */
     background-position: center;
-    /* Center the background image */
     color: #E2E2E2;
-    /* Light text color */
     font-size: 24px;
     font-weight: bold;
     text-align: center;
     line-height: 300px;
-    /* Adjust based on button height */
     width: 100%;
     height: 300px;
-    /* Double the original height */
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Ensure the .lore doesn't overflow */
 }
 
 .house-button:hover {
     transform: scale(1.05);
-    /* Slightly enlarges the button on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Background images for each button */
+.house-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #E2E2E2;
+    background: rgba(0, 0, 0, 0.6); /* Background to enhance readability */
+    z-index: 1;
+    transition: opacity 0.5s ease; /* Smooth transition for house name */
+}
+
+.lore {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for better text visibility */
+    color: #E2E2E2;
+    opacity: 0;
+    transition: opacity 0.5s ease, background-image 0.5s ease; /* Smooth transition for overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.house-button:hover .lore {
+    opacity: 1;
+    background-image: url('images/hover-background.jpg'); /* Change to specific background if needed */
+}
+
+.house-button:hover .house-name {
+    opacity: 0; /* Hide house name on hover */
+}
+
 #house-stark {
     background-image: url('images/7narwen-starks.jpg');
 }
@@ -88,22 +146,6 @@ body {
     background-image: url('images/7narwen-wallpaper-arryn-1920.jpg');
 }
 
-/* #house-targaryen {
-    grid-column: span 2;
-    /* Makes House Targaryen span both columns */
-    background-image: url('images/7narwen-wallpaper-targ-1920.jpg');
- */
-
-#house-targaryen,
-#house-velaryon {
-    grid-column: span 2;
-    /* Makes House Targaryen and House Velaryon span both columns */
-    background-size: cover;
-    /* Ensure background image covers the button */
-    background-position: center;
-    /* Center the background image */
-}
-
 #house-targaryen {
     background-image: url('images/7narwen-wallpaper-targ-1920.jpg');
 }
@@ -121,4 +163,52 @@ body {
 .map-container img {
     max-width: 100%;
     height: auto;
+}
+
+@keyframes rune-glow {
+    0% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.house-button {
+    position: relative;
+}
+
+.house-button:hover .lore {
+    animation: rune-glow 1s infinite;
+    color: #FFD700; /* Gold color */
+}
+@keyframes enchanted-glow {
+    0% {
+        box-shadow: 0 0 5px rgb(244, 244, 244);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(244, 244, 244);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(244, 244, 244);
+    }
+}
+
+.house-button {
+    position: relative;
+}
+
+.house-button:hover {
+    animation: enchanted-glow 1s infinite;
+}
+
+.house-button .lore {
+    transition: opacity 0.3s ease;
+}
+
+.house-button:hover .lore {
+    opacity: 1;
 }
